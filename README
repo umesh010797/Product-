@@ -1,0 +1,46 @@
+1)first we create entity class with Name "ProductModel" in/product/target/classes/com/example/demo/model/ProductModel.class
+ with field productId,name,category,basePrice,discount,gst,delivery,finalPrice
+ and generate getter setter
+ 2)in getDiscount method we return value "(basePrice*discount)/100" 
+ in getGst method we return value "(basePrice*gst)/100"
+ in getFinalPrice we return value "getBasePrice-getDiscount+getGst+getDeliver"
+ 3)Then we create ProductServiceImpl method in "/product/target/classes/com/example/demo/service/ProductService.class" and implement Productservice interface which in "/product/target/classes/com/example/demo/service/ProductServiceImp.class" and override this method 
+    public ProductModel creatProctModel(ProductModel pModel);
+	public List<ProductModel> FindAllProduct();
+	public ProductModel FindProduct(Integer id);
+	public void DeleteProduct(Integer id);
+4)then we create ProductRepo Interface which is in "/product/target/classes/com/example/demo/repo/ProductRepo.class" and Extends crudeRepository Interface in 
+5)Then we create Controle class and Write Postmaping getmaping deletemaping logics
+6)then then we configure data base connectivity in application.property in "/product/src/main/resources/application.properties"
+7)here our project is ready 
+8)open mysql workbench define database
+9)Now go to ProductAplication.java file which is in "/product/src/test/java/com/example/demo/ProductApplicationTests.java"
+it has main methode of our project now run the project 
+9)open postman enter data
+	{
+    "productId":1003,
+    "name":"HP Pavilion 360",
+    "productType":"Laptop",
+    "category":"Electronics",
+    "basePrice":60000,
+    "discount":15,
+    "gst":18,
+    "delivery":350
+    }
+   with postMapping
+   and fetch the data by using getMapping
+   {
+    "productId":1003,
+    "name":"HP Pavilion 360",
+    "productType":"Laptop",
+    "category":"Electronics",
+    "basePrice":60000,
+    "discount":15,
+    "gst":18,
+    "delivery":350
+    }
+
+Note use http://localhost:8080/save for postmapping
+http://localhost:8080/findall for getmapping for all product
+http://localhost:8080/find/(id) for getmapping for one product
+http://localhost:8080/delete/(id) for deletemapping
