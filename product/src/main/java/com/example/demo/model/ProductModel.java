@@ -84,7 +84,7 @@ public class ProductModel {
 
 
 	public double getDiscount() {
-		return (basePrice*discount)/100;
+		return getBasePrice()-(getBasePrice()*discount)/100;
 	}
 
 
@@ -114,7 +114,7 @@ public class ProductModel {
 
 
 	public double getFinalPrice() {
-		return getBasePrice()-getDiscount()+getGst()+getDelivery();
+		returngetDiscount()+getGst()+getDelivery();
 	}
 
 
