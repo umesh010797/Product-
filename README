@@ -18,29 +18,43 @@
 it has main methode of our project now run the project 
 9)open postman enter data
 	{
-    "productId":1003,
-    "name":"HP Pavilion 360",
-    "productType":"Laptop",
-    "category":"Electronics",
-    "basePrice":60000,
-    "discount":15,
-    "gst":18,
-    "delivery":350
-    }
+    "id":2,
+    "productId":"1002",
+  "name": "LG Washing Machine ",
+  "productType": "Washing Machine",
+  "category": "Home Appliances",
+  "basePrice": "25000.00",
+  "discount": 22
+  }
    with postMapping
    and fetch the data by using getMapping
-   {
-    "productId":1003,
-    "name":"HP Pavilion 360",
-    "productType":"Laptop",
-    "category":"Electronics",
-    "basePrice":60000,
-    "discount":15,
-    "gst":18,
-    "delivery":350
-    }
+{
+    "id": 2,
+    "productId": "1002",
+    "name": "LG Washing Machine ",
+    "productType": "Washing Machine",
+    "category": "Home Appliances",
+    "basePrice": 25000.0,
+    "discount": 5500.0,
+    "charges": {
+        "id": 1,
+        "gst": 24.0,
+        "delivery": 800.0
+    },
+    "finalPrice": 24980.0
+}
 
-Note use http://localhost:8080/save for postmapping
-http://localhost:8080/findall for getmapping for all product
-http://localhost:8080/find/(id) for getmapping for one product
-http://localhost:8080/delete/(id) for deletemapping
+Note use curl --location 'http://localhost:8080/product/save?charges=1' \
+--header 'Content-Type: application/json' \
+--data '{
+    "id":2,
+    "productId":"1002",
+  "name": "LG Washing Machine ",
+  "productType": "Washing Machine",
+  "category": "Home Appliances",
+  "basePrice": "25000.00",
+  "discount": 22
+  }' for postmapping
+http://localhost:8080/product/findall for getmapping for all product
+http://localhost:8080/product/find/(id) for getmapping for one product
+http://localhost:8080/product/delete/(id) for deletemapping
